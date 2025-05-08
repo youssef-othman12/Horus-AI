@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Egyptian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: #000;
+            color: #b89e67;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .scroll-image {
+            flex: 0 0 45%;
+            max-width: 500px;
+            margin-right: 30px;
+        }
+        
+        .scroll-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .hero-content {
+            flex: 0 0 45%;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #b89e67;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 30px;
+            color: #b89e67;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #b89e67;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #9c8761;
+            letter-spacing: 1px;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .second-section {
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section, .second-section {
+                flex-direction: column;
+            }
+            
+            .scroll-image {
+                flex: 0 0 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+                max-width: 100%;
+            }
+            
+            .hero-content {
+                flex: 0 0 100%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero-section">
+            <div class="scroll-image">
+                <img src="recommendation.jpg" alt="Ancient Egyptian Scroll with Pharaoh Image">
+            </div>
+            <div class="hero-content">
+                <h1>Ancient Egyptian</h1>
+                <div class="subtitle">Discover the Legacy</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget sed mauris tristique elit. As sed et nam vel sed vitae odio lorem mattis lacus vel cosperdunt non. Ultrices eleifend dictum sit amet et cursus et si sunt nulla et solutdud semper atque efficere volesque, est esse ea sed vel a.</p>
+                <p>Mauris dui lorem ullamcorper sed ipsum malesuada elit. Ut eget sed mauris tristique elit. As sed et nam vel sed vitae odio lorem mattis lacus vel cosperdunt non est velit facilisnun.</p>
+            </div>
+        </section>
+        
+
+    </div>
+</body>
+</html>
