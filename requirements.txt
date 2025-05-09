@@ -1,0 +1,9 @@
+Flask
+tensorflow
+Pillow
+numpy
+pandas
+sentence-transformers
+scikit-learn
+Werkzeug
+tf-keras
