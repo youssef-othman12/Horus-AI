@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتيجة تحليل الصورة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .artifact-name {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .description {
+            text-align: justify;
+        }
+        a.back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        a.back-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نتيجة تحليل الصورة</h1>
+        <p>تم التعرف على القطعة الأثرية كـ: <span id="artifact-name" class="artifact-name"></span></p>
+        <p class="description" id="artifact-description"></p>
+        <a href="/" class="back-button">العودة للصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const artifactName = localStorage.getItem("imageResultArtifact");
+            const artifactDescription = localStorage.getItem("imageResultDescription");
+
+            if (artifactName && artifactDescription) {
+                document.getElementById("artifact-name").textContent = artifactName;
+                document.getElementById("artifact-description").textContent = artifactDescription;
+            } else {
+                document.getElementById("artifact-name").textContent = "غير متوفر";
+                document.getElementById("artifact-description").textContent = "لم يتم العثور على بيانات الصورة. يرجى المحاولة مرة أخرى.";
+            }
+            // Clear the stored data after displaying it
+            // localStorage.removeItem("imageResultArtifact");
+            // localStorage.removeItem("imageResultDescription");
+        });
+    </script>
+</body>
+</html>
+

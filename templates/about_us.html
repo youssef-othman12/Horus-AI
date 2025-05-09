@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Horus AI</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}"> <!-- Assuming you have a main style.css or similar -->
+    <style>
+        /* Basic styling for the About Us page - can be expanded */
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ffd700; /* Gold border */
+            margin-bottom: 30px;
+        }
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #ffd700;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+        .team-section h1 {
+            color: #ffd700;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .team-member {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .team-member h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        .team-member p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">HORUS <span>AI</span></div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for("index") }}">Home</a></li>
+                <li><a href="{{ url_for("about_us") }}" class="active">About Us</a></li>
+            </ul>
+        </nav>
+
+        <section class="team-section">
+            <h1>Meet the Horus AI Team</h1>
+            
+            <div class="team-member">
+                <h3>Nader Mohamed</h3>
+                <p>Nader is the driving force behind Horus AI, bringing a passion for ancient history and cutting-edge technology together. With a background in software engineering and a deep appreciation for Egyptian heritage, Nader envisioned a tool that could bring the past to life in new and interactive ways.</p>
+            </div>
+
+            <div class="team-member">
+                <h3>Youssef Othman</h3>
+                <p>Youssef is the mastermind behind the sophisticated AI models that power Horus AI. His expertise in machine learning and image recognition allows the platform to accurately identify and provide information about ancient artifacts. Ahmed is dedicated to pushing the boundaries of what AI can achieve in the field of cultural heritage.</p>
+            </div>
+
+            <div class="team-member">
+                <h3>Khaled Mohamed</h3>
+                <p>Khaled is responsible for the intuitive and engaging user experience of the Horus AI platform. She combines her artistic talent with a deep understanding of user-centered design principles to create interfaces that are both beautiful and easy to use. Fatima believes that technology should be accessible and enjoyable for everyone.</p>
+            </div>
+
+            <div class="team-member">
+                <h3>Amr Sherif</h3>
+                <p>Amr ensures the robustness and scalability of the Horus AI backend systems. His skills in database management and server-side programming are crucial for handling the vast amounts of data and user interactions on the platform. Omar is committed to building a reliable and efficient infrastructure.</p>
+            </div>
+
+            <div class="team-member">
+                <h3>Shahd Ibrahim</h3>
+                <p>Shahd leads the research and curation of historical content for Horus AI. Her profound knowledge of ancient Egyptian history and culture ensures the accuracy and richness of the information provided by the platform. Layla is passionate about making history engaging and accessible to a wider audience.</p>
+            </div>
+
+            <div class="team-member">
+                <h3>Hager Ahmed</h3>
+                <p>Hager is the voice of Horus AI, connecting with users and sharing the platform's unique capabilities with the world. He manages the community, gathers feedback, and works to expand the reach of Horus AI. Khaled is dedicated to building a vibrant community around the appreciation of history and technology.</p>
+            </div>
+            
+            <!-- Add more team members as needed -->
+
+        </section>
+
+        <footer>
+            <p style="margin-top: 50px; color: #cccccc;">&copy; 2024 Horus AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

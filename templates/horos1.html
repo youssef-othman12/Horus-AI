@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horus AI - Discover Egypt</title>
+  <!-- Link to the new stylesheet -->
+  <link rel="stylesheet" href="{{ url_for("static", filename="style_phase2.css") }}"/>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">HORUS <span>AI</span></div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for("index") }}"><u>Home</u></a></li>
+        <li><a href="{{ url_for("about_us") }}">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Use the new grid layout -->
+    <div class="main-content-grid">
+      <section class="left-section">
+        <img src="{{ url_for("static", filename="eyeIcon.png") }}" alt="Eye of Horus" class="eye-icon"/> 
+        <h1>SEE EGYPT <br /> DIFFERENTLY</h1>
+        <p>Discover the hidden wonders of ancient Egypt through the eyes of innovation. Let history and technology guide you on an unforgettable journey.</p>
+        <button class="see-more-btn">See More</button> <!-- Added See More button as in page1.jpg -->
+      </section>
+
+      <section class="upload-box-container">
+        <div class="upload-box">
+          <form id="upload-form" enctype="multipart/form-data" style="width: 100%;">
+            <label for="file-upload" class="custom-file-upload">
+              <img src="{{ url_for("static", filename="icon.png") }}" alt="Upload Icon" class="upload-icon" />
+              <p>Upload</p> <!-- Simplified text as in page1.jpg -->
+            </label>
+            <input id="file-upload" type="file" accept="image/*" />
+            <img id="image-preview" alt="Preview" />
+            <div class="loading" id="image-loading">
+              <div class="spinner"></div>
+              <p>Analyzing image...</p>
+            </div>
+            <!-- Result container might be removed if results are on page2 -->
+            <div class="result-container" id="image-result-container">
+              <h4>Identification Result:</h4>
+              <p id="identification-result"></p>
+              <p id="description-result"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <aside class="recommendation-section">
+        <h2>Get Your Personalized Tour</h2>
+        <form id="recommendation-form" class="recommendation-form">
+          <div>
+            <label for="location">Location:</label>
+            <select id="location" name="location">
+              <option value="all">All</option> <!-- Simplified from All Egypt -->
+              <option value="cairo">Cairo</option>
+              <option value="luxor">Luxor</option>
+              <option value="aswan">Aswan</option>
+              <option value="alexandria">Alexandria</option>
+              <option value="giza">Giza</option>
+            </select>
+          </div>
+          <div>
+            <label for="interests">Interests:</label>
+            <input type="text" id="interests" name="interests" placeholder="e.g. history, nature" />
+          </div>
+          <div>
+            <label for="liked">Places you liked:</label>
+            <input type="text" id="liked" name="liked_places" placeholder="e.g. Great Pyramids of Giza, Khan el-Khalili" />
+          </div>
+          <!-- Duration field is not in page1.jpg, but keeping it for functionality unless user says to remove -->
+          <div>
+            <label for="duration">Trip duration (days):</label>
+            <input type="number" id="duration" name="duration" min="1" max="30" value="3" />
+          </div>
+          <div>
+            <button type="submit" id="recommend-btn">Get Recommendations</button>
+          </div>
+        </form>
+        <div class="loading" id="rec-loading">
+          <div class="spinner"></div>
+          <p>Creating your personalized tour plan...</p>
+        </div>
+         <div class="result-container" id="recommendation-result-container">
+          <h4>Suggested Tour Plan:</h4>
+          <pre id="recommendation-text"></pre> 
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const fileUpload = document.getElementById("file-upload");
+    const imagePreview = document.getElementById("image-preview");
+    const imageLoading = document.getElementById("image-loading");
+    // const imageResultContainer = document.getElementById("image-result-container"); // Might be removed
+    // const identificationResult = document.getElementById("identification-result"); // Might be removed
+    // const descriptionResult = document.getElementById("description-result"); // Might be removed
+
+    fileUpload.addEventListener("change", function(e) {
+      if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          imagePreview.src = event.target.result;
+          imagePreview.style.display = "block";
+        };
+        reader.readAsDataURL(e.target.files[0]);
+
+        imageLoading.style.display = "block";
+        // imageResultContainer.style.display = "none"; // Might be removed
+
+        const formData = new FormData();
+        formData.append("image", e.target.files[0]);
+
+        fetch("{{ url_for("upload_image_route") }}", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          imageLoading.style.display = "none";
+          if (data.error) {
+            // Handle error display on page1 if needed, or rely on page2
+            alert("Error: " + data.error); 
+          } else {
+            localStorage.setItem("imageResultArtifact", data.class_name);
+            localStorage.setItem("imageResultDescription", data.description);
+            localStorage.setItem("uploadedImage", imagePreview.src); // Store image for page2
+            window.location.href = "{{ url_for("result_page") }}";
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          imageLoading.style.display = "none";
+          alert("An error occurred while processing the image.");
+        });
+      }
+    });
+
+    const recommendationForm = document.getElementById("recommendation-form");
+    const recLoading = document.getElementById("rec-loading");
+    // const recommendationResultContainer = document.getElementById("recommendation-result-container"); // Might be removed
+    // const recommendationText = document.getElementById("recommendation-text"); // Might be removed
+
+    recommendationForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      recLoading.style.display = "block";
+      // recommendationResultContainer.style.display = "none"; // Might be removed
+
+      const formData = new FormData(recommendationForm);
+      const payload = {
+        location: formData.get("location"),
+        interests: formData.get("interests"),
+        liked_places: formData.get("liked_places"),
+        duration: formData.get("duration")
+      };
+
+      try {
+        const response = await fetch("{{ url_for("get_recommendations_route") }}", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        recLoading.style.display = "none";
+        if (result.error) {
+            alert("Error: " + result.error);
+        } else {
+            localStorage.setItem("tourRecommendation", result.recommendations);
+            localStorage.setItem("tourLocation", payload.location);
+            localStorage.setItem("tourInterests", payload.interests);
+            localStorage.setItem("tourDuration", payload.duration);
+            window.location.href = "{{ url_for("recommendation_display_page") }}";
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        recLoading.style.display = "none";
+        alert("An error occurred while generating recommendations.");
+      }
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Tour - Horus AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_phase2.css') }}">
+    <style>
+        /* Additional styles specific to this page can be added here or in style_phase2.css */
+        .recommendation-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: flex-start;
+        }
+        .recommendation-image-container {
+            flex: 1;
+            max-width: 400px; /* Max width for the image */
+        }
+        .recommendation-image-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+        .recommendation-details {
+            flex: 2;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .recommendation-details h1 {
+            color: #ffd700; /* Gold color for heading */
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        .recommendation-details h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .recommendation-details p, .recommendation-details pre {
+            color: #e0e0e0;
+            font-size: 1rem;
+            line-height: 1.7;
+            white-space: pre-wrap; /* To respect newlines in recommendation text */
+            margin-bottom: 15px;
+        }
+        .recommendation-details .meta-info {
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">HORUS <span>AI</span></div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <div class="recommendation-content">
+                <div class="recommendation-image-container">
+                    <!-- Static image as per user's description of page3.jpg -->
+                    <img src="{{ url_for('static', filename='recommendation.jpg') }}" alt="Ancient Egyptian Scene">
+                </div>
+                <div class="recommendation-details">
+                    <h1>Your Personalized Tour Recommendation</h1>
+                    
+                    <h2>Tour Itinerary:</h2>
+                    <pre id="recommendation-text"><span class="placeholder">Loading tour details...</span></pre>
+                    
+                    <h2>Based on your preferences:</h2>
+                    <p class="meta-info"><strong>Location:</strong> <span id="tour-location">N/A</span></p>
+                    <p class="meta-info"><strong>Interests:</strong> <span id="tour-interests">N/A</span></p>
+                    <p class="meta-info"><strong>Duration:</strong> <span id="tour-duration">N/A</span> days</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer can be added here if needed -->
+        <!-- 
+        <footer>
+            <p>&copy; 2024 Horus AI. All rights reserved.</p>
+        </footer> 
+        -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const recommendationText = localStorage.getItem('tourRecommendation') || 'No recommendation details found. Please try generating a tour again.';
+            const tourLocation = localStorage.getItem('tourLocation') || 'Not specified';
+            const tourInterests = localStorage.getItem('tourInterests') || 'Not specified';
+            const tourDuration = localStorage.getItem('tourDuration') || 'Not specified';
+
+            document.getElementById('recommendation-text').textContent = recommendationText;
+            document.getElementById('tour-location').textContent = tourLocation.charAt(0).toUpperCase() + tourLocation.slice(1);
+            document.getElementById('tour-interests').textContent = tourInterests;
+            document.getElementById('tour-duration').textContent = tourDuration;
+
+            // Optional: Clear localStorage items after displaying them if they are one-time info
+            // localStorage.removeItem('tourRecommendation');
+            // localStorage.removeItem('tourLocation');
+            // localStorage.removeItem('tourInterests');
+            // localStorage.removeItem('tourDuration');
+        });
+    </script>
+</body>
+</html>
+

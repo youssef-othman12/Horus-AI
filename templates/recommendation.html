@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توصيات الجولة السياحية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ffffff;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        pre {
+            background-color: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: right;
+            white-space: pre-wrap; /* Ensures text wraps and respects newlines */
+            font-size: 1em;
+            color: #e0e0e0;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .details {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .details span {
+            font-weight: bold;
+            color: #ffc107;
+        }
+        a.back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        a.back-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>جولتك السياحية المخصصة</h1>
+        <div class="details">
+            <p><strong>الموقع:</strong> <span id="tour-location"></span></p>
+            <p><strong>الاهتمامات:</strong> <span id="tour-interests"></span></p>
+            <p><strong>مدة الرحلة:</strong> <span id="tour-duration"></span> أيام</p>
+        </div>
+        <h2>خطة الجولة المقترحة:</h2>
+        <pre id="tour-recommendation"></pre>
+        <a href="/" class="back-button">العودة للصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tourRecommendation = localStorage.getItem("tourRecommendation");
+            const tourLocation = localStorage.getItem("tourLocation");
+            const tourInterests = localStorage.getItem("tourInterests");
+            const tourDuration = localStorage.getItem("tourDuration");
+
+            if (tourRecommendation) {
+                document.getElementById("tour-recommendation").textContent = tourRecommendation;
+            } else {
+                document.getElementById("tour-recommendation").textContent = "لم يتم العثور على توصيات. يرجى المحاولة مرة أخرى.";
+            }
+            
+            document.getElementById("tour-location").textContent = tourLocation || "غير محدد";
+            document.getElementById("tour-interests").textContent = tourInterests || "غير محدد";
+            document.getElementById("tour-duration").textContent = tourDuration || "غير محدد";
+
+            // Optional: Clear the stored data after displaying it to prevent stale data on next visit
+            // localStorage.removeItem("tourRecommendation");
+            // localStorage.removeItem("tourLocation");
+            // localStorage.removeItem("tourInterests");
+            // localStorage.removeItem("tourDuration");
+        });
+    </script>
+</body>
+</html>
+

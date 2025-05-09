@@ -1,0 +1,310 @@
+/* Horus AI - Phase 2 Styles */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif; /* Using a common sans-serif font */
+    background-color: #000000; /* Solid black background as per page1.jpg */
+    color: #ffffff; /* Default text color to white */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('background.jpg') no-repeat center center/cover;
+ 
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px; /* Max width for the main content area */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px; /* Padding for navbar */
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 2rem; /* Larger logo text */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #ffd700; /* Gold color for AI part of the logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.nav-links a:hover, .nav-links a u {
+    color: #ffd700; /* Gold color for hover and active/underlined link */
+    text-decoration: underline;
+}
+
+/* Main Content Area */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr; /* Three column layout */
+    gap: 30px;
+    align-items: center; /* Vertically align items in the grid */
+    width: 100%;
+}
+
+/* Left Section (Text and Eye Icon) */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.left-section .eye-icon {
+  width: 500px;
+  margin-bottom: 20px;
+  margin-left: -150px;
+}
+
+.left-section h1 {
+    font-size: 2.8rem; /* Large heading */
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.left-section p {
+    font-size: 0.9rem;
+    color: #cccccc; /* Lighter grey for paragraph */
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.see-more-btn {
+    padding: 12px 25px;
+    background-color: transparent;
+    border: 2px solid #ffd700; /* Gold border */
+    color: #ffd700; /* Gold text */
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.see-more-btn:hover {
+    background-color: #ffd700;
+    color: #000000;
+}
+
+/* Upload Box (Center Section) */
+.upload-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 350px; /* Ensure it has some height */
+}
+
+.upload-box {
+    top: 150px; 	
+    background-color: rgba(255, 215, 0, 0.1); /* Slight gold tint background */
+    border: 2px solid #ffd700; /* Gold border */
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); /* Gold glow */
+    width: 100%;
+    max-width: 400px; /* Max width for upload box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.custom-file-upload {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-icon {
+    width: 50px; /* Adjust as needed */
+    margin-bottom: 15px;
+}
+
+.custom-file-upload p {
+    font-size: 1.5rem; /* Larger text for Upload */
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+#file-upload {
+    display: none; /* Hide the actual file input */
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 100px;
+    margin-top: 15px;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
+}
+
+/* Recommendation Form (Right Section) */
+.recommendation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the start of the column */
+    background-color: rgba(30, 30, 30, 0.5); /* Darker transparent background */
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.recommendation-section h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.recommendation-form div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.recommendation-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+.recommendation-form input[type="text"],
+.recommendation-form input[type="number"],
+.recommendation-form select {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle white */
+    border: 1px solid #555555; /* Darker border */
+    color: #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+}
+
+.recommendation-form input::placeholder {
+    color: #888888;
+}
+
+#recommend-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffd700; /* Gold background */
+    border: none;
+    color: #000000; /* Black text */
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#recommend-btn:hover {
+    background-color: #e6c300; /* Darker gold on hover */
+}
+
+/* Loading and Result Containers (General Styling) */
+.loading {
+    display: none;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top: 4px solid #ffd700; /* Gold spinner */
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.result-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    text-align: left;
+    color: #e0e0e0;
+}
+
+.result-container h4 {
+    color: #ffd700;
+    margin-top: 0;
+}
+
+/* Ensure background image from page1.jpg is applied if needed */
+body {
+    background-image: url('{{ url_for("static", filename="background.jpg") }}'); /* Assuming background.jpg is the dark themed one */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+}
+
+/* Add a semi-transparent overlay to darken the background image further if needed */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+    z-index: -1; /* Place it behind the content */
+}
+
+
+
+
+
+/* Ensure dropdown options are visible on dark theme */
+.recommendation-form select option {
+    background-color: #333333; /* Dark grey background for options */
+    color: #ffffff; /* White text for options */
+}

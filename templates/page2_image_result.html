@@ -1,0 +1,171 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis Result - Horus AI</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background-color: #1e1e1e; /* Slightly lighter dark shade for content area */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 800px; /* Max width for readability */
+        }
+        h1, h2 {
+            color: #ffd700; /* Gold color for headings */
+        }
+        .result-display {
+            background-color: #2c2c2c; /* Even lighter dark shade for sections */
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .result-display img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .chat-section {
+            background-color: #2c2c2c;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .chat-window {
+            height: 300px;
+            border: 1px solid #444;
+            padding: 10px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            background-color: #1e1e1e;
+        }
+        .chat-message {
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #005f73; /* Dark cyan for user messages */
+            color: white;
+            text-align: right;
+        }
+        .horus-ai-message {
+            background-color: #333333; /* Dark grey for AI messages */
+            color: white;
+            text-align: left;
+        }
+        .chat-input input[type="text"] {
+            width: calc(100% - 70px); /* Adjust width to accommodate button */
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: #e0e0e0;
+            margin-right: 10px;
+        }
+        .chat-input button {
+            padding: 10px 15px;
+            background-color: #ffd700; /* Gold color for button */
+            color: #000000; /* Black text for button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .chat-input button:hover {
+            background-color: #e6c300; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Analysis Result</h1>
+        
+        <div class="result-display">
+            <h2>Uploaded Image:</h2>
+            <img id="result-image" src="" alt="Uploaded Artifact" style="max-width: 100%; max-height: 300px; display: block; margin: 0 auto;">
+            <h2>Artifact Details:</h2>
+            <p id="artifact-name"><strong>Name:</strong> <span>Loading...</span></p>
+            <p id="artifact-description"><strong>Description:</strong> <span>Loading...</span></p>
+        </div>
+
+        <div class="chat-section">
+            <h2>Chat with Horus AI</h2>
+            <div class="chat-window" id="chat-window"></div>
+            <div class="chat-input">
+                <input type="text" id="user-message" placeholder="Ask about this artifact...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // In a real application, these values would come from the backend or image analysis results
+            const imageName = localStorage.getItem('uploadedImageName') || 'placeholder_artifact.jpg'; // Default placeholder
+            const artifactName = localStorage.getItem('imageResultArtifact') || 'Artifact Name Not Found';
+            const artifactDescription = localStorage.getItem('imageResultDescription') || 'No description available.';
+
+            document.getElementById('result-image').src = `/static/images/${imageName}`; // Assuming images are in a static/images folder relative to the app's root
+            document.querySelector('#artifact-name span').textContent = artifactName;
+            document.querySelector('#artifact-description span').textContent = artifactDescription;
+
+            const chatWindow = document.getElementById('chat-window');
+            const messageInput = document.getElementById('user-message');
+            const sendButton = document.getElementById('send-button');
+
+            sendButton.addEventListener('click', function() {
+                const userMessage = messageInput.value.trim();
+                if (userMessage === '') return;
+
+                appendMessage('User', userMessage);
+                messageInput.value = '';
+
+                // Simulate sending message to backend and receiving response
+                // In a real app, this would be an API call (e.g., using fetch or XMLHttpRequest)
+                setTimeout(function() {
+                    let botResponse = "I'm sorry, I can only provide information about ancient Egyptian artifacts based on the image uploaded. Please ask a relevant question.";
+                    if (userMessage.toLowerCase().includes("when was this made") || userMessage.toLowerCase().includes("date")) {
+                        botResponse = "This artifact dates back to the New Kingdom period, approximately 1550-1070 BC.";
+                    } else if (userMessage.toLowerCase().includes("material")) {
+                        botResponse = "It appears to be made of sandstone, a common material in ancient Egyptian constructions.";
+                    }
+                    appendMessage('Horus AI', botResponse);
+                }, 1000);
+            });
+
+            function appendMessage(sender, message) {
+                const messageElement = document.createElement('div');
+                // Sanitize sender name for CSS class to prevent errors with spaces
+                const senderClass = sender.toLowerCase().replace(/\s+/g, '-'); 
+                messageElement.classList.add('chat-message', senderClass + '-message');
+                
+                const senderStrongElement = document.createElement('strong');
+                senderStrongElement.textContent = sender + ': ';
+                
+                const contentSpanElement = document.createElement('span');
+                contentSpanElement.textContent = message;
+                
+                messageElement.appendChild(senderStrongElement);
+                messageElement.appendChild(contentSpanElement);
+                chatWindow.appendChild(messageElement);
+                chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+            }
+        });
+    </script>
+</body>
+</html>
+
