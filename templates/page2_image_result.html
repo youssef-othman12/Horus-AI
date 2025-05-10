@@ -127,25 +127,38 @@
             const messageInput = document.getElementById('user-message');
             const sendButton = document.getElementById('send-button');
 
-            sendButton.addEventListener('click', function() {
-                const userMessage = messageInput.value.trim();
-                if (userMessage === '') return;
+           sendButton.addEventListener('click', function() {
+    const userMessage = messageInput.value.trim();
+    if (userMessage === '') return;
 
-                appendMessage('User', userMessage);
-                messageInput.value = '';
+    appendMessage('User', userMessage);
+    messageInput.value = '';
 
-                // Simulate sending message to backend and receiving response
-                // In a real app, this would be an API call (e.g., using fetch or XMLHttpRequest)
-                setTimeout(function() {
-                    let botResponse = "I'm sorry, I can only provide information about ancient Egyptian artifacts based on the image uploaded. Please ask a relevant question.";
-                    if (userMessage.toLowerCase().includes("when was this made") || userMessage.toLowerCase().includes("date")) {
-                        botResponse = "This artifact dates back to the New Kingdom period, approximately 1550-1070 BC.";
-                    } else if (userMessage.toLowerCase().includes("material")) {
-                        botResponse = "It appears to be made of sandstone, a common material in ancient Egyptian constructions.";
-                    }
-                    appendMessage('Horus AI', botResponse);
-                }, 1000);
-            });
+    fetch('/chat_with_horus', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_message: userMessage,
+            artifact_name: artifactName,
+            artifact_description: artifactDescription
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            appendMessage('Horus AI', "⚠️ " + data.error);
+        } else {
+            appendMessage('Horus AI', data.bot_response);
+        }
+    })
+    .catch(err => {
+        appendMessage('Horus AI', "⚠️ Failed to connect to the server.");
+        console.error(err);
+    });
+});
+
 
             function appendMessage(sender, message) {
                 const messageElement = document.createElement('div');
