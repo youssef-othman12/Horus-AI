@@ -6,6 +6,28 @@
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <strong>🏠 Home Interface</strong><br>
+        <img src="https://github.com/user-attachments/assets/3906d8d2-31d8-4956-942c-0e3dc6330578" width="300px">
+      </td>
+      <td align="center">
+        <strong>🔍 Chatbot Interaction</strong><br>
+        <img src="https://github.com/user-attachments/assets/d29c743f-349c-4afd-a11f-0e942a92ddd8" width="300px">
+      </td>
+      <td align="center">
+        <strong>💬 Recommendation Results</strong><br>
+        <img src="https://github.com/user-attachments/assets/0fc158fe-185f-4e6c-82fb-3b254b5742a2" width="300px">
+      </td>
+    </tr>
+  </table>
+</div>
+---
+
 ## 📽️ Ad Video
 
 🎥 [**Watch the Ad Video**](https://drive.google.com/file/d/1lmisRs3lUKR51qWwAwyi_4d-P7ebV8g0/view?usp=sharing)
