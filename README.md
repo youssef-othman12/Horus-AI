@@ -1,87 +1,222 @@
-# Horus AI: Ancient Egypt Artifact Explorer and Guide
+# 🧠 Horus AI: Guardian of Ancient Egyptian Civilization
 
+![Horus](https://github.com/user-attachments/assets/f07eb3ad-9123-4b16-9e63-f11cbd3405ea)
 
+> *"Let the wisdom of the ancients meet the power of artificial intelligence."*
 
-## Project Overview
+---
 
-Horus AI is a Flask-based web application designed to explore and provide information about ancient Egyptian artifacts. It allows users to upload images of artifacts for classification, receive AI-generated descriptions, get personalized travel recommendations for historical sites in Egypt, and engage in a chat with an AI assistant (Horus AI) to learn more about the identified artifacts. The application integrates a Keras model for image classification and the Google Gemini API for generating chat responses and potentially enhancing descriptions and recommendations.
+## 📸 Screenshots
 
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <strong>🏠 Home Interface</strong><br>
+        <img src="https://github.com/user-attachments/assets/3906d8d2-31d8-4956-942c-0e3dc6330578" width="300px">
+      </td>
+      <td align="center">
+        <strong>🔍 Chatbot Interaction</strong><br>
+        <img src="https://github.com/user-attachments/assets/d29c743f-349c-4afd-a11f-0e942a92ddd8" width="300px">
+      </td>
+      <td align="center">
+        <strong>💬 Recommendation Results</strong><br>
+        <img src="https://github.com/user-attachments/assets/0fc158fe-185f-4e6c-82fb-3b254b5742a2" width="300px">
+      </td>
+    </tr>
+  </table>
+</div>
+---
 
+## 📽️ Ad Video
 
-## Features
+🎥 [**Watch the Ad Video**](https://drive.google.com/file/d/1lmisRs3lUKR51qWwAwyi_4d-P7ebV8g0/view?usp=sharing)
 
-*   **Artifact Image Classification:** Upload an image of an ancient Egyptian artifact, and the application will classify it using a pre-trained Keras model. If the model is unavailable, it provides a mocked classification.
-*   **AI-Generated Descriptions:** Get a descriptive text about the classified artifact.
-*   **Personalized Travel Recommendations:** Based on optional user inputs like location, interests, liked places, and duration of stay, the application provides mock travel recommendations for historical sites in Egypt.
-*   **Interactive Chat with Horus AI:** Engage in a conversation with "Horus AI" (powered by Google Gemini Pro) to ask questions and learn more details about the identified artifact. The chat is context-aware, using the artifact's name and description.
-*   **User-Friendly Web Interface:** The application provides a simple and intuitive web interface built with Flask and HTML/CSS for easy interaction.
-*   **Modular Design:** The project is structured with separate modules for application logic (`app.py`), utility functions (`llm_utils.py`, `model_utils.py`), and class labels (`class_labels.py`).
+> 🧠 *This video ad was created entirely using AI tools.*
 
+---
 
+## 🔍 Introduction
 
-## Setup and Installation
+**Have You Ever Lived History?**
+Horus AI is more than just software — it’s a digital bridge between the past and the present.
+It reimagines how we interact with ancient Egyptian artifacts using the power of AI.
 
-To set up and run this project locally, follow these steps:
+* **Egypt's Legacy:** One of humanity’s greatest civilizations
+* **Beyond Sight:** Experience history, not just see it
+* **Technology’s Role:** Live history through advanced tech
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/Nadercr7/Horus-AI-Depi]
-    cd flask_project
-    ```
-2.  **Create a virtual environment:**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-4.  **Set up environment variables:**
-    Create a `.env` file in the project root directory and add the following:
-    ```env
-    GEMINI_API_KEY=your_gemini_api_key
-    ```
-    Replace `your_gemini_api_key` with your actual Gemini API key.
+---
 
-5.  **Run the application:**
-    ```bash
-    flask run
-    ```
-    The application will be accessible at `http://127.0.0.1:5000` by default.
+## 🤖 The Problem
 
-## Usage
+Current AI models like ChatGPT, Claude, and Gemini often:
 
-1.  Navigate to the application URL in your web browser.
-2.  Upload an image of an ancient Egyptian artifact.
-3.  The application will classify the artifact and display its name and a brief description.
-4.  You can then interact with Horus AI to ask further questions about the artifact or request travel recommendations.
+* Provide **general or vague responses**
+* **Misclassify historical images**
+* Lack **deep cultural understanding** of ancient artifacts
 
-## Project Structure
+---
+
+## 💡 Our Solution: Horus AI
+
+**Horus AI** teaches artificial intelligence to truly understand history — not just recognize it.
+
+### 🔍 Features
+
+| Feature                 | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| 📸 Image Classification | Identify ancient artifacts with CNN + transfer learning |
+| 📝 Descriptions         | Generate accurate and engaging historical content       |
+| 🗺️ Recommendations     | Get personalized site suggestions and travel tips       |
+| 💬 Virtual Guide        | Ask questions via a smart Gemini-powered chat assistant |
+
+---
+
+## 🔧 The Power Behind the Eye
+
+| Technology            | Role                                                          |
+| --------------------- | ------------------------------------------------------------- |
+| 🧠 Keras + TensorFlow | Image classification using transfer learning                  |
+| 🔤 Google Gemini API  | Generates context-aware responses and historical explanations |
+| 🌐 Flask              | User-friendly web app to access Horus AI                      |
+| ⚙️ Modular Codebase   | Efficient and maintainable project structure                  |
+
+---
+
+## 🧪 Model Development
+
+### 🔬 Data Collection & Augmentation
+
+* Curated top-quality datasets of ancient Egyptian artifacts
+* **Augmentation Techniques**:
+
+  * Rotation, flipping, zooming, cropping
+  * Brightness/contrast shifts
+
+### ⚙️ Preprocessing
+
+* Resize images
+* Filter low-resolution data
+* Balance underrepresented and overrepresented classes
+
+### 🧠 Baseline Model
+
+* **Model:** CNN using Keras
+* **Initial Accuracy:** \~50%
+* **Improvements:**
+
+  * Hyperparameter tuning
+  * Class merging and relabeling
+  * Manual data verification
+  * Final Accuracy: **\~80%**
+
+---
+
+## 📊 Error Analysis Highlights
+
+* **Issue:** Classes like *Ramessum* and *Ramesseum* were split unnecessarily
+* **Fix:** Merged confusing or duplicate classes
+* **Result:** Reduced misclassification (e.g., Sphinx misclassified under *Giza\_Pyramid\_Complex*)
+
+---
+
+## 🎯 Future Goals: 90% Accuracy
+
+* 🧪 Advanced augmentations
+* 🔁 More real-world data collection
+* 💻 Better pretrained models
+* 🧹 Clean, labeled, and balanced datasets
+
+---
+
+## 💬 Gemini-Powered Chatbot
+
+**Horus AI Assistant** is built using **Google Gemini Pro**:
+
+* 💡 Provides cultural, accurate explanations
+* 🗣️ Responds to historical queries interactively
+* 📌 Integrated feedback loop for better personalization
+
+---
+
+## 🌍 Web Interface Highlights
+
+| Component            | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| 🧠 Model Integration | `model_utils.py` handles classification logic         |
+| 🔤 NLP Utilities     | `llm_utils.py` manages Gemini API interactions        |
+| 🌐 Frontend          | Flask + HTML/CSS for uploading, viewing, and chatting |
+
+---
+
+## 🧭 How The System Works
+
+1. **Upload Image**: Submit an artifact image
+2. **Classification**: AI identifies the artifact
+3. **Description**: Get historical context
+4. **Recommendations**: Travel site suggestions
+5. **Live Q\&A**: Chat with Horus AI
+
+---
+
+## 🧩 Project Structure
 
 ```
 flask_project/
-├── app.py                  # Main Flask application
-├── class_labels.py         # Python list of artifact class names
-├── last_model.keras        # Pre-trained Keras model for image classification
-├── requirements.txt        # Python dependencies
+├── app.py                  # Main Flask app
+├── class_labels.py         # Artifact labels
+├── last_model.keras        # Trained CNN model
+├── llm_utils.py            # Gemini API logic
+├── model_utils.py          # Image processing
+├── requirements.txt
 ├── static/
-│   └── ...                 # Static files (CSS, images, etc.)
+│   └── images/
 └── templates/
-    └── ...                 # HTML templates
+    └── index.html, etc.
 ```
 
-## Contributing
+---
 
-Contributions are welcome! Please follow these steps:
+## 🚀 Getting Started
 
-1.  Fork the repository.
-2.  Create a new branch: `git checkout -b feature-branch`.
-3.  Make your changes and commit them: `git commit -m 'Add some feature'`.
-4.  Push to the branch: `git push origin feature-branch`.
-5.  Submit a pull request.
+```bash
+# Clone the repo
+git clone https://github.com/Nadercr7/Horus-AI-Depi
+cd flask_project
 
-## License
+# Set up environment
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-This project is licensed under the Horus AI team 
+# Install requirements
+pip install -r requirements.txt
 
+# Configure API key
+echo "GEMINI_API_KEY=your_api_key_here" > .env
+
+# Run the app
+flask run
+```
+
+Visit: `http://127.0.0.1:5000`
+
+---
+
+## 🙌 Final Thoughts
+
+### 🔁 Progress Recap
+
+From raw data to a polished web app with 80% classification accuracy — we combined:
+
+* Deep learning (CNN)
+* Transfer learning
+* NLP (Gemini)
+* Error analysis and human feedback
+
+### 🚀 Vision
+
+To create **intelligent, accessible archaeology tools** where:
+
+* AI becomes a **historical companion**
+* Learning about civilizations is **immersive and personalized**
