@@ -1,160 +1,148 @@
-/* Enhanced Horus AI Styles */
+/* Horus AI - Phase 2 Styles */
 
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000000;
-    color: #ffffff;
+    font-family: 'Arial', sans-serif; /* Using a common sans-serif font */
+    background-color: #000000; /* Solid black background as per page1.jpg */
+    color: #ffffff; /* Default text color to white */
     display: flex;
     flex-direction: column;
     align-items: center;
     background: url('background.jpg') no-repeat center center/cover;
+ 
 }
 
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1300px; /* Max width for the main content area */
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Enhanced Navbar */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    margin-bottom: 40px;
+    padding: 15px 0px; /* Padding for navbar */
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .logo {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Larger logo text */
     font-weight: bold;
     color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .logo span {
-    color: #ffd700;
+    color: #ffd700; /* Gold color for AI part of the logo */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 40px;
     margin: 0;
     padding: 0;
+}
+
+.nav-links li {
+    margin-left: 30px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ffd700;
-    transition: width 0.3s ease;
+.nav-links a:hover, .nav-links a u {
+    color: #ffd700; /* Gold color for hover and active/underlined link */
+    text-decoration: underline;
 }
 
-.nav-links a:hover::after {
+/* Main Content Area */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr; /* Three column layout */
+    gap: 30px;
+    align-items: center; /* Vertically align items in the grid */
     width: 100%;
 }
 
-/* Enhanced Main Content Grid */
-.main-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    gap: 40px;
-    align-items: start;
-    margin-top: 40px;
-}
-
-/* Enhanced Left Section */
+/* Left Section (Text and Eye Icon) */
 .left-section {
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .left-section .eye-icon {
-    width: 400px;
-    margin-bottom: 30px;
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
+  width: 500px;
+  margin-bottom: 20px;
+  margin-left: -150px;
 }
 
 .left-section h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem; /* Large heading */
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     line-height: 1.2;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 .left-section p {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    line-height: 1.8;
-    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #cccccc; /* Lighter grey for paragraph */
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .see-more-btn {
-    padding: 15px 35px;
-    background: linear-gradient(45deg, #ffd700, #ffb700);
-    border: none;
-    color: #000000;
-    border-radius: 30px;
+    padding: 12px 25px;
+    background-color: transparent;
+    border: 2px solid #ffd700; /* Gold border */
+    color: #ffd700; /* Gold text */
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: bold;
     text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .see-more-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+    background-color: #ffd700;
+    color: #000000;
 }
 
-/* Enhanced Upload Box */
+/* Upload Box (Center Section) */
 .upload-box-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    padding: 20px;
+    min-height: 350px; /* Ensure it has some height */
 }
 
 .upload-box {
-    background: rgba(255, 215, 0, 0.1);
-    border: 2px solid #ffd700;
-    border-radius: 30px;
-    padding: 50px;
+    top: 150px; 	
+    background-color: rgba(255, 215, 0, 0.1); /* Slight gold tint background */
+    border: 2px solid #ffd700; /* Gold border */
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); /* Gold glow */
     width: 100%;
-    max-width: 450px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.upload-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    max-width: 400px; /* Max width for upload box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
 }
 
 .custom-file-upload {
@@ -162,123 +150,113 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
 }
 
 .upload-icon {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    width: 50px; /* Adjust as needed */
+    margin-bottom: 15px;
 }
 
 .custom-file-upload p {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #ffd700;
+    font-size: 1.5rem; /* Larger text for Upload */
+    font-weight: bold;
+    color: #ffffff;
     margin: 0;
 }
 
 #file-upload {
-    display: none;
+    display: none; /* Hide the actual file input */
 }
 
 #image-preview {
     max-width: 100%;
-    max-height: 200px;
-    border-radius: 15px;
-    margin-top: 20px;
-    display: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-height: 100px;
+    margin-top: 15px;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
 }
 
-/* Enhanced Recommendation Section */
+/* Recommendation Form (Right Section) */
 .recommendation-section {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the start of the column */
+    background-color: rgba(30, 30, 30, 0.5); /* Darker transparent background */
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .recommendation-section h2 {
-    font-size: 2rem;
-    color: #ffd700;
-    margin-bottom: 30px;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    align-self: center;
 }
 
 .recommendation-form div {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 .recommendation-form label {
     display: block;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #cccccc;
 }
 
-.recommendation-form input,
+.recommendation-form input[type="text"],
+.recommendation-form input[type="number"],
 .recommendation-form select {
     width: 100%;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle white */
+    border: 1px solid #555555; /* Darker border */
     color: #ffffff;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.recommendation-form input:focus,
-.recommendation-form select:focus {
-    outline: none;
-    border-color: #ffd700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 0.9rem;
 }
 
 .recommendation-form input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: #888888;
 }
 
 #recommend-btn {
     width: 100%;
-    padding: 18px;
-    background: linear-gradient(45deg, #ffd700, #ffb700);
+    padding: 15px;
+    background-color: #ffd700; /* Gold background */
     border: none;
-    color: #000000;
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-radius: 12px;
+    color: #000000; /* Black text */
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+    transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 #recommend-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+    background-color: #e6c300; /* Darker gold on hover */
 }
 
-/* Enhanced Loading and Result Containers */
+/* Loading and Result Containers (General Styling) */
 .loading {
     display: none;
-    margin: 30px auto;
+    margin: 20px auto;
     text-align: center;
 }
 
 .spinner {
-    border: 4px solid rgba(255, 215, 0, 0.1);
+    border: 4px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    border-top: 4px solid #ffd700;
-    width: 40px;
-    height: 40px;
+    border-top: 4px solid #ffd700; /* Gold spinner */
+    width: 30px;
+    height: 30px;
     animation: spin 1s linear infinite;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 10px auto;
 }
 
 @keyframes spin {
@@ -287,80 +265,46 @@ body, html {
 }
 
 .result-container {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    text-align: left;
     color: #e0e0e0;
-    backdrop-filter: blur(10px);
 }
 
 .result-container h4 {
     color: #ffd700;
     margin-top: 0;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .main-content-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .left-section .eye-icon {
-        width: 300px;
-        margin: 0 auto 20px;
-    }
-
-    .left-section {
-        text-align: center;
-    }
-
-    .upload-box,
-    .recommendation-section {
-        max-width: 600px;
-        margin: 0 auto;
-    }
+/* Ensure background image from page1.jpg is applied if needed */
+body {
+    background-image: url('{{ url_for("static", filename="background.jpg") }}'); /* Assuming background.jpg is the dark themed one */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .nav-links {
-        gap: 20px;
-    }
-
-    .left-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .upload-box,
-    .recommendation-section {
-        padding: 30px;
-    }
+/* Add a semi-transparent overlay to darken the background image further if needed */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+    z-index: -1; /* Place it behind the content */
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
 
-    .left-section .eye-icon {
-        width: 200px;
-    }
 
-    .left-section h1 {
-        font-size: 2rem;
-    }
 
-    .custom-file-upload p {
-        font-size: 1.4rem;
-    }
+
+/* Ensure dropdown options are visible on dark theme */
+.recommendation-form select option {
+    background-color: #333333; /* Dark grey background for options */
+    color: #ffffff; /* White text for options */
 }
