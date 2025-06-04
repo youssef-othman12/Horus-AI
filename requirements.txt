@@ -1,8 +1,0 @@
-Flask==3.0.2
-tensorflow==2.15.0
-Pillow==10.2.0
-numpy==1.26.4
-pandas==2.2.1
-sentence-transformers==2.5.1
-scikit-learn==1.4.1.post1
-google-generativeai==0.3.2
